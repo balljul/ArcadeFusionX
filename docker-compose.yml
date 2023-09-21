@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+
+  afx_db:
+    image: mysql:5.7.32
+    container_name: afx_db
+    restart: unless-stopped
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE:  afx_db
+      MYSQL_ROOT_PASSWORD: password
+      SERVICE_TAGS: dev
+      SERVICE_NAME: afx_db
+    volumes:
+      - afXdata:/var/lib/mysql/
+
+volumes:
+  afXdata:
+    driver: local
