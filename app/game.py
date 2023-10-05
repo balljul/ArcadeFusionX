@@ -33,7 +33,7 @@ while running:
     screen.fill("white")
 
     #add subsurface for debug UI
-    debugUI = screen.subsurface(10,10,100,50)
+    debugUI = screen.subsurface(10,10,75,30)
     debugUI.fill("black")
 
     #init the game object and add controls
@@ -48,8 +48,9 @@ while running:
         player_pos.x -= 300 * dt
     if keys[pygame.K_d]:
         player_pos.x += 300 * dt
-
-    
+    #reset pos
+    if keys[pygame.K_r]:
+        player_pos = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2)    
 
     # limits FPS to n
     # dt is delta time in seconds since last frame, used for framerate-
