@@ -5,12 +5,16 @@ import pygame
 pygame.init()
 screen = pygame.display.set_mode((1280, 720))
 clock = pygame.time.Clock()
+debugMode = True
 running = True
 dt = 0
 
 player_pos = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2)
 
 while running:
+    #debug mode - shows FPS and TPS
+    if debugMode:
+        debugInfo()
     # poll for events
     # pygame.QUIT event means the user clicked X to close your window
     for event in pygame.event.get():
@@ -41,3 +45,7 @@ while running:
     dt = clock.tick(60) / 1000
 
 pygame.quit()
+
+
+def debugInfo():
+    return 0

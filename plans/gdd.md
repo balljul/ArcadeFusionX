@@ -2,7 +2,7 @@
 
 ## The idea/concept
 
-- Map will respemble the school 
+- Map will respeble the school building of HTBLuVa Villach
 - 2 Player Game. The players will play against each other
 - The Player with the most points wins.
 - 1/3/5 min modes.
@@ -20,5 +20,3 @@
 - Walking {W,A,S,D} or {UP,LEFT,RIGHT,DOWN}
 - Open door, etc.. {e, SELF_CONFIGURED_KEY}
 - Pick up item {f, SELF_CONFIGRED_KEY}
-
-
