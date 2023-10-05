@@ -14,7 +14,7 @@ running = True
 
 #initialize some variables for the program
 player_pos = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2)
-
+speed = 300
 
 def debugInfo():
     text = font.render(("FPS:" + str(round(clock.get_fps()))), True, (255,255,255))
@@ -41,21 +41,28 @@ while running:
 
     keys = pygame.key.get_pressed()
     if keys[pygame.K_w]:
-        player_pos.y -= 300 * dt
+        player_pos.y -= speed * dt
     if keys[pygame.K_s]:
-        player_pos.y += 300 * dt
+        player_pos.y += speed * dt
     if keys[pygame.K_a]:
-        player_pos.x -= 300 * dt
+        player_pos.x -= speed * dt
     if keys[pygame.K_d]:
-        player_pos.x += 300 * dt
+        player_pos.x += speed * dt
     #reset pos
     if keys[pygame.K_r]:
         player_pos = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2)    
 
+    #control movement speed
+    if keys[pygame.K_f]:
+        speed *= 5
+    if keys[pygame.K_g]:
+        speed /= 5
+
+
     # limits FPS to n
     # dt is delta time in seconds since last frame, used for framerate-
     # independent physics.
-    dt = clock.tick(244) / 1000
+    dt = clock.tick(144) / 10000
 
     #debug mode - shows FPS and TPS
     if debugMode:
