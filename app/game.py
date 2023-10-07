@@ -1,10 +1,9 @@
-# Example file showing a circle moving on screen
 import pygame
 from pygame import * 
 
 # pygame setup
 pygame.init()
-screen = pygame.display.set_mode((1600, 900))
+screen = pygame.display.set_mode((1920, 1080))
 clock = pygame.time.Clock()
 dt = 0
 font = pygame.font.Font("app/resources/PixelifySans-Regular.ttf", 14)
@@ -14,7 +13,7 @@ running = True
 
 #initialize some variables for the program
 player_pos = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2)
-speed = 500
+speed = 700
 
 def debugInfo():
     text = font.render(("FPS:" + str(round(clock.get_fps()))), True, (255,255,255))
@@ -37,7 +36,7 @@ while running:
     debugUI.fill("black")
 
     #init the game object and add controls
-    pygame.draw.circle(screen, "red", player_pos, 40)
+    pygame.draw.circle(screen, "black", player_pos, 16)
 
     keys = pygame.key.get_pressed()
     if keys[pygame.K_w]:
