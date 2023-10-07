@@ -1,17 +1,23 @@
 import pygame
 from pygame import * 
 
+debugMode = True
+running = True
+fullscreen = False
 
 # TODO: make it read the settings from a file containing infos about resolution and other things, maybe even savegame stats
 # pygame setup
 pygame.init()
+
 screen = pygame.display.set_mode((1920, 1080))
+if fullscreen:
+    screen = pygame.display.toggle_fullscreen()
+pygame.display.set_caption("ArcadeFusionX")
 clock = pygame.time.Clock()
 dt = 0
 font = pygame.font.Font("app/resources/PixelifySans-Regular.ttf", 14)
 
-debugMode = True
-running = True
+
 
 #initialize some variables for the program
 player_pos = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2)
@@ -55,9 +61,9 @@ while running:
 
     #control movement speed
     if keys[pygame.K_f]:
-        speed *= 2
+        speed += 100
     if keys[pygame.K_g]:
-        speed /= 2
+        speed -= 100
 
 
     # limits FPS to n
