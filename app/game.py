@@ -15,7 +15,7 @@ if fullscreen:
 pygame.display.set_caption("ArcadeFusionX")
 clock = pygame.time.Clock()
 dt = 0
-font = pygame.font.Font("app/resources/PixelifySans-Regular.ttf", 14)
+font = pygame.font.Font("app/resources/fonts/PixelifySans-Regular.ttf", 14)
 
 
 
