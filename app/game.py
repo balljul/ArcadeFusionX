@@ -1,6 +1,8 @@
 import pygame
 from pygame import * 
 
+
+# TODO: make it read the settings from a file containing infos about resolution and other things, maybe even savegame stats
 # pygame setup
 pygame.init()
 screen = pygame.display.set_mode((1920, 1080))
