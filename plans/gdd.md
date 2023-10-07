@@ -2,7 +2,7 @@
 
 ## The idea/concept
 
-- Map will respeble the school building of HTBLuVa Villach
+- Map will show resemblence of the school building of HTBLuVa Villach
 - 2 Player Game. The players will play against each other
 - The Player with the most points wins.
 - 1/3/5 min modes.
@@ -12,7 +12,7 @@
 - Like in the old pokemon games
 
 ## Story & Characters
-- Now real story but some npcs who offer quests which when completed give you extra points.
+- No real story but some npcs who offer quests which when completed give you extra points.
 - Characters could be:
     - Some teachers 
 

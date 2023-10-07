@@ -14,7 +14,7 @@ running = True
 
 #initialize some variables for the program
 player_pos = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2)
-speed = 300
+speed = 500
 
 def debugInfo():
     text = font.render(("FPS:" + str(round(clock.get_fps()))), True, (255,255,255))
@@ -54,9 +54,9 @@ while running:
 
     #control movement speed
     if keys[pygame.K_f]:
-        speed *= 5
+        speed *= 2
     if keys[pygame.K_g]:
-        speed /= 5
+        speed /= 2
 
 
     # limits FPS to n
