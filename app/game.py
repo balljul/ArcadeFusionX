@@ -3,7 +3,7 @@ import pygame
 
 # pygame setup
 pygame.init()
-screen = pygame.display.set_mode((1280, 720))
+screen = pygame.display.set_mode((1920, 1080))
 clock = pygame.time.Clock()
 running = True
 dt = 0
@@ -18,19 +18,19 @@ while running:
             running = False
 
     # fill the screen with a color to wipe away anything from last frame
-    screen.fill("purple")
+    screen.fill("blue")
 
-    pygame.draw.circle(screen, "red", player_pos, 40)
+    pygame.draw.circle(screen, "white", player_pos, 40)
 
     keys = pygame.key.get_pressed()
     if keys[pygame.K_w]:
-        player_pos.y -= 300 * dt
+        player_pos.y -= 900 * dt
     if keys[pygame.K_s]:
-        player_pos.y += 300 * dt
+        player_pos.y += 900 * dt
     if keys[pygame.K_a]:
-        player_pos.x -= 300 * dt
+        player_pos.x -= 900 * dt
     if keys[pygame.K_d]:
-        player_pos.x += 300 * dt
+        player_pos.x += 900 * dt
 
     # flip() the display to put your work on screen
     pygame.display.flip()
