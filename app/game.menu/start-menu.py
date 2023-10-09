@@ -1,4 +1,5 @@
 import pygame
+import button
 
 pygame.init()
 
@@ -16,6 +17,11 @@ font = pygame.font.SysFont("arialBlack", 40)
 # Colors
 TEXT_COL = (255, 255, 255)
 
+# loading btn images
+resume_img = pygame.image.load("./Fortsetzen.png").convert_alpha()
+
+# Creating Button instances
+resume_btn = button.Button((SCREEN_WIDTH/2.2), (SCREEN_HEIGHT/4), resume_img, 0.2)
 
 # Functions
 def draw_text(text, font, text_col, x, y):
@@ -33,16 +39,23 @@ while run:
 
     # Check if Game is paused
     if game_paused:
-        draw_text("Game is paused", font, TEXT_COL, (SCREEN_WIDTH/2.9), (SCREEN_HEIGHT/2))
+        resume_btn.draw(screen)
     else:
         draw_text("Press space for menu", font, TEXT_COL, (SCREEN_WIDTH/2.9), (SCREEN_HEIGHT/2))
 
     # Event Handler
     for event in pygame.event.get():
         if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_SPACE:
-                print("Game paused")
-                game_paused = True
+            if event.key == pygame.K_p:
+                if game_paused:
+                    print("Game resumed")
+                    game_paused = False
+                else:
+                    print("Game paused")
+                    game_paused = True
+            if event.key == pygame.K_q:
+                print("Game exited")
+                run = False
         if event.type == pygame.QUIT:
             run = False
 
