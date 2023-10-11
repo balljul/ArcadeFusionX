@@ -1,22 +1,20 @@
 import pygame 
-from menus import Game_menu as gmenu
+from menus import Game_menu
 from globals import AFX_configs as configs
 
 pygame.init()
-gmenu.init()
-
+gmenu = Game_menu()
 pygame.display.set_caption("AcradeFusionX")
 
 fullscreen = False
 debugMode = True
-running = configs
 screen = configs.screen
 clock = configs.clock
 dt = configs.dt
-font = pygame.font.Font("app/resources/fonts/PixelifySans-Regular.ttf", 14)
 player_pos = configs.player_pos
+font = configs.font
 speed = 700
-
+game_paused = False
 
 if fullscreen:
     screen = pygame.display.toggle_fullscreen()
@@ -24,7 +22,7 @@ if fullscreen:
 
 def debugInfo():
     text = font.render(("FPS:" + str(round(clock.get_fps()))), True, (255, 255, 255))
-    pygame.debugUI.blit(text, [10, 10], None, 0)
+    # debugUI.blit(text, [10, 10], None, 0)
 
 
 while configs.running:
@@ -54,7 +52,19 @@ while configs.running:
     if keys[pygame.K_g]:
         speed -= 100
 
-    gmenu.game_menu_logic()
+    if keys[pygame.K_p]:
+        game_paused = True
+    
+    if game_paused:
+        if gmenu.resume_btn.draw(screen):
+            game_paused = False
+        if gmenu.quit_btn.draw(screen):
+            configs.running = False
+        if gmenu.options_btn.draw(screen):
+            pass
+    else:
+        pygame.draw.circle(screen, "white", player_pos, 40)
+    
 
     dt = clock.tick(144) / 10000
 
