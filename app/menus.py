@@ -12,7 +12,6 @@ class Game_menu():
         self.font = font
         self.TEXT_COL = text_col
         self.game_paused = False
-
         # loading btn images
         self.resume_img = pygame.image.load("./resume.png").convert_alpha()
         self.quit_img = pygame.image.load("./quit.png").convert_alpha()
@@ -30,6 +29,10 @@ def draw_text(self, text, x, y):
 
 
 def game_menu_Logic(self):
+
+    keys = configs.keys
+    if keys[pygame.K_p]:
+        self.game_paused = True
 
     # Check if Game is paused
     if self.game_paused:
