@@ -4,7 +4,7 @@ pygame.init()
 
 class AFX_configs():
     def __init__(self):
-        self.run = Trued
+        self.run = True
         self.SCREEN_WIDTH = 1920
         self.SCREEN_HEIGHT = 1080
         self.screen = pygame.display.set_mode((self.SCREEN_WIDTH, self.SCREEN_HEIGHT))
