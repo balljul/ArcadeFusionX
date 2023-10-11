@@ -12,9 +12,9 @@ class Game_menu():
     TEXT_COL = configs.TEXT_COL
     game_paused = False
     # loading btn images
-    resume_img = pygame.image.load("./resume.png").convert_alpha()
-    quit_img = pygame.image.load("./quit.png").convert_alpha()
-    options_img = pygame.image.load("./options.png").convert_alpha()
+    resume_img = pygame.image.load("resources/resume.png").convert_alpha()
+    quit_img = pygame.image.load("resources/quit.png").convert_alpha()
+    options_img = pygame.image.load("resources/options.png").convert_alpha()
 
     # Creating Button instances
     resume_btn = button.Button((SCREEN_WIDTH/2.2), (SCREEN_HEIGHT/4), resume_img, 0.2)
