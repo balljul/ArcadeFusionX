@@ -4,6 +4,7 @@ from menus import Game_menu as gmenu
 from globals import AFX_configs as configs
 # pygame setup
 pygame.init()
+gmenu.init()
 
 screen = configs.screen
 clock = configs.clock
@@ -12,16 +13,16 @@ dt = configs.dt
 
 player_pos = configs.player_pos
 
-while running:
+while configs.running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            running = False
+            configs.running = False
 
     # fill the screen with a color to wipe away anything from last frame
     screen.fill("blue")
 
     pygame.draw.circle(screen, "white", player_pos, 40)
-
+    keys = configs.keys
     keys = pygame.key.get_pressed()
     if keys[pygame.K_w]:
         player_pos.y -= 900 * dt
@@ -31,6 +32,8 @@ while running:
         player_pos.x -= 900 * dt
     if keys[pygame.K_d]:
         player_pos.x += 900 * dt
+
+    gmenu.game.game_menu_paused()
 
     pygame.display.flip()
 
