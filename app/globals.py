@@ -12,3 +12,5 @@ class AFX_configs():
         self.running = True
         self.dt = 0
         self.player_pos = pygame.Vector2(self.screen.get_width() / 2, self.screen.get_height() / 2)
+        self.font = pygame.font.SysFont("arialBlack", 40)
+        self.TEXT_COL = (255, 255, 255)
