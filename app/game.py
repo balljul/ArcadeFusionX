@@ -1,0 +1,66 @@
+import pygame 
+from menus import Game_menu as gmenu
+from globals import AFX_configs as configs
+
+pygame.init()
+gmenu.init()
+
+pygame.display.set_caption("AcradeFusionX")
+
+fullscreen = False
+debugMode = True
+running = configs
+screen = configs.screen
+clock = configs.clock
+dt = configs.dt
+font = pygame.font.Font("app/resources/fonts/PixelifySans-Regular.ttf", 14)
+player_pos = configs.player_pos
+speed = 700
+
+
+if fullscreen:
+    screen = pygame.display.toggle_fullscreen()
+
+
+def debugInfo():
+    text = font.render(("FPS:" + str(round(clock.get_fps()))), True, (255, 255, 255))
+    pygame.debugUI.blit(text, [10, 10], None, 0)
+
+
+while configs.running:
+
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+
+    screen.fill("blue")
+
+    keys = configs.keys
+    keys = pygame.key.get_pressed()
+    if keys[pygame.K_w]:
+        player_pos.y -= 900 * dt
+    if keys[pygame.K_s]:
+        player_pos.y += 900 * dt
+    if keys[pygame.K_a]:
+        player_pos.x -= 900 * dt
+    if keys[pygame.K_d]:
+        player_pos.x += 900 * dt
+
+    if keys[pygame.K_r]:
+        player_pos = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2)
+
+    if keys[pygame.K_f]:
+        speed += 100
+    if keys[pygame.K_g]:
+        speed -= 100
+
+    gmenu.game_menu_logic()
+
+    dt = clock.tick(144) / 10000
+
+    if debugMode:
+        debugInfo()
+
+    pygame.display.flip()
+
+pygame.quit()
