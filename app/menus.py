@@ -2,7 +2,6 @@ import pygame
 import button
 from globals import AFX_configs as configs
 
-
 class Game_menu():
     # Defining constants for the menu
     screen = configs.screen
@@ -21,11 +20,9 @@ class Game_menu():
     quit_btn = button.Button((SCREEN_WIDTH/2.2), (SCREEN_HEIGHT/2), quit_img, 0.2)
     options_btn = button.Button((SCREEN_WIDTH/2.2), (SCREEN_HEIGHT/1.4), options_img, 0.2)
 
-
     def draw_text(self, text, x, y):
         img = self.font.render(text, True, self.TEXT_COL)
         self.screen.blit(img, (x, y))
-
 
     def game_menu_logic(self):
 
