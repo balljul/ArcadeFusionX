@@ -11,6 +11,6 @@ class AFX_configs():
     running = True
     dt = 0
     player_pos = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2)
-    font = pygame.font.SysFont("arialBlack", 40)
+    font = pygame.font.SysFont("resources/fonts/PixelifySans-Regular.ttf", 40)
     TEXT_COL = (255, 255, 255)
     keys = pygame.key.get_pressed()

@@ -1,4 +1,4 @@
-import pygame 
+import pygame
 from menus import Game_menu
 from globals import AFX_configs as configs
 
@@ -22,7 +22,7 @@ if fullscreen:
 
 def debugInfo():
     text = font.render(("FPS:" + str(round(clock.get_fps()))), True, (255, 255, 255))
-    # debugUI.blit(text, [10, 10], None, 0)
+    debugUI.blit(text, [10, 10], None, 0)
 
 
 while configs.running:
@@ -32,6 +32,8 @@ while configs.running:
             running = False
 
     screen.fill("blue")
+    debugUI = screen.subsurface(10,10,100,50)
+    debugUI.fill("black")
 
     keys = configs.keys
     keys = pygame.key.get_pressed()
