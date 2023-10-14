@@ -32,9 +32,12 @@ while configs.running:
             running = False
 
     screen.fill("blue")
+
+    #debug UI elements
     debugUI = screen.subsurface(10, 10, 100, 50)
     debugUI.fill("black")
 
+    #controls
     keys = configs.keys
     keys = pygame.key.get_pressed()
     if keys[pygame.K_w]:

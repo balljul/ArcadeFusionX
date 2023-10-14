@@ -1,6 +1,5 @@
 import pygame
 
-
 class Button():
     def __init__(self, x, y, image, scale):
         width = image.get_width()
@@ -16,7 +15,7 @@ class Button():
         pos = pygame.mouse.get_pos()
 
         if self.rect.collidepoint(pos):
-            if pygame.mouse.get_pressed()[0] == 1 and self.clicked == False:
+            if pygame.mouse.get_pressed()[0] == 1 and not self.clicked:
                 self.clicked = True
                 action = True
 
