@@ -32,7 +32,7 @@ while configs.running:
             running = False
 
     screen.fill("blue")
-    debugUI = screen.subsurface(10,10,100,50)
+    debugUI = screen.subsurface(10, 10, 100, 50)
     debugUI.fill("black")
 
     keys = configs.keys
@@ -56,7 +56,7 @@ while configs.running:
 
     if keys[pygame.K_p]:
         game_paused = True
-    
+
     if game_paused:
         if gmenu.resume_btn.draw(screen):
             game_paused = False
@@ -66,7 +66,6 @@ while configs.running:
             pass
     else:
         pygame.draw.circle(screen, "white", player_pos, 40)
-    
 
     dt = clock.tick(144) / 10000
 
