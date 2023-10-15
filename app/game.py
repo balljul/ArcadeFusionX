@@ -19,7 +19,7 @@ game_paused = False
 if fullscreen:
     screen = pygame.display.toggle_fullscreen()
 
-debugUI = screen.subsurface(10, 10, 120, 40)
+debugUI = screen.subsurface(10, 10, 100, 40)
 
 def debugInfo():
     #debug UI elements
@@ -33,7 +33,7 @@ while configs.running:
         if event.type == pygame.QUIT:
             running = False
 
-    screen.fill("blue")
+    screen.fill('#242424')
 
     #controls
     keys = configs.keys
@@ -55,9 +55,6 @@ while configs.running:
     if keys[pygame.K_g]:
         speed -= 100
 
-    if pygame.mouse.get_pressed()[0]:
-        debugUI.fill("green")
-
     if keys[pygame.K_p]:
         game_paused = True
         pygame.time.wait(100)
@@ -69,10 +66,9 @@ while configs.running:
             configs.running = False
         if gmenu.options_btn.draw(screen):
             pass
-#        if keys[pygame.K_p]:
-#            game_paused = False
+
     else:
-        pygame.draw.circle(screen, "white", player_pos, 40)
+        pygame.draw.circle(screen, '#AF0000', player_pos, 30)
 
     dt = clock.tick(240) / 10000
 

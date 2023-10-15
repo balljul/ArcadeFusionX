@@ -38,5 +38,6 @@ class Game_menu():
                 configs.running = False
             if self.options_btn.draw(self.screen):
                 pass
+            ## WIP
             else:
-                self.draw_text("Press space for menu", self.font, self.TEXT_COL, (self.SCREENW/2.9), (self.SCREEN_HEIGHT/2))
+                self.draw_text("Press space for menu", self.font, self.TEXT_COL, (self.SCREEN_WIDTH/2.9), (self.SCREEN_HEIGHT/2))
