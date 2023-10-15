@@ -31,7 +31,7 @@ while configs.running:
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            running = False
+            configs.running = False
 
     screen.fill('#242424')
 
