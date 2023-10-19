@@ -1,6 +1,6 @@
 # MVP 1.0 
 
-## Arcade Maschine ansich
+## Arcade Maschine an sich
 - Arcade Maschine läuft mit Rasperry dahinter
 
 
