@@ -13,7 +13,7 @@ class Start_menu():
     TEXT_COL = configs.TEXT_COL
     game_paused = False
     # loading btn images
-    start_img = pygame.image.load("resources/start.png").convert_alpha()
+    start_img = pygame.image.load("../resources/start.png").convert_alpha()
     # Creating btn Instances
     start_btn = button.Button((SCREEN_WIDTH/2.2), (SCREEN_HEIGHT/4), start_img, 0.5)
 
@@ -27,8 +27,8 @@ class Game_menu():
     TEXT_COL = configs.TEXT_COL
     game_paused = False
     # loading btn images
-    resume_img = pygame.image.load("resources/resume.png").convert_alpha()
-    quit_img = pygame.image.load("resources/quit.png").convert_alpha()
+    resume_img = pygame.image.load("../resources/resume.png").convert_alpha()
+    quit_img = pygame.image.load("../resources/quit.png").convert_alpha()
     # options_img = pygame.image.load("resources/options.png").convert_alpha()
 
     # Creating Button instances
