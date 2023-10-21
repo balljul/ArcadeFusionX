@@ -1,9 +1,11 @@
 import pygame
-from menus import Game_menu
-from globals import AFX_configs as configs
+from menus import Game_menu, Start_menu
+from globals import AFX_configs
 
 pygame.init()
 gmenu = Game_menu()
+smenu = Start_menu()
+configs = AFX_configs()
 pygame.display.set_caption("AcradeFusionX")
 
 fullscreen = False
@@ -14,7 +16,7 @@ dt = configs.dt
 player_pos = configs.player_pos
 font = configs.font
 speed = 700
-game_paused = False
+game_state = "start_menu"
 
 if fullscreen:
     screen = pygame.display.toggle_fullscreen()
@@ -35,37 +37,42 @@ while configs.running:
     debugUI = screen.subsurface(10, 10, 100, 50)
     debugUI.fill("black")
 
-    keys = configs.keys
     keys = pygame.key.get_pressed()
-    if keys[pygame.K_w]:
-        player_pos.y -= 900 * dt
-    if keys[pygame.K_s]:
-        player_pos.y += 900 * dt
-    if keys[pygame.K_a]:
-        player_pos.x -= 900 * dt
-    if keys[pygame.K_d]:
-        player_pos.x += 900 * dt
 
-    if keys[pygame.K_r]:
-        player_pos = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2)
-
-    if keys[pygame.K_f]:
-        speed += 100
-    if keys[pygame.K_g]:
-        speed -= 100
-
-    if keys[pygame.K_p]:
-        game_paused = True
-
-    if game_paused:
-        if gmenu.resume_btn.draw(screen):
-            game_paused = False
-        if gmenu.quit_btn.draw(screen):
+    if game_state == "start_menu":
+        if smenu.start_btn.draw(screen):
+            game_state = "game"
+        if keys[pygame.K_q]:
             configs.running = False
-        if gmenu.options_btn.draw(screen):
-            pass
-    else:
+    elif game_state == "game":
+
+        if keys[pygame.K_w]:
+            player_pos.y -= 900 * dt
+        if keys[pygame.K_s]:
+            player_pos.y += 900 * dt
+        if keys[pygame.K_a]:
+            player_pos.x -= 900 * dt
+        if keys[pygame.K_d]:
+            player_pos.x += 900 * dt
+
+        if keys[pygame.K_r]:
+            player_pos = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2)
+
+        if keys[pygame.K_f]:
+            speed += 100
+        if keys[pygame.K_g]:
+            speed -= 100
+
+        if keys[pygame.K_p]:
+            game_state = "game_menu"
+
         pygame.draw.circle(screen, "white", player_pos, 40)
+
+    elif game_state == "game_menu":
+        if gmenu.resume_btn.draw(screen):
+            game_state = "game"
+        if gmenu.quit_btn.draw(screen):
+            game_state = "start_menu"
 
     dt = clock.tick(144) / 10000
 
@@ -75,4 +82,3 @@ while configs.running:
     pygame.display.flip()
 
 pygame.quit()
-
