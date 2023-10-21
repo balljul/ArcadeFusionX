@@ -75,3 +75,4 @@ while configs.running:
     pygame.display.flip()
 
 pygame.quit()
+
