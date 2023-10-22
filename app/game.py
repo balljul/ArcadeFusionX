@@ -33,20 +33,20 @@ while configs.running:
             running = False
 
     screen.fill("blue")
-    debugUI = screen.subsurface(10, 10, 100, 50)
+    debugUI = screen.subsurface(10, 10, 150, 50)
     debugUI.fill("black")
 
     keys = pygame.key.get_pressed()
 
     if keys[pygame.K_q]:
         configs.running = False
-    
 
     if game_state == "start_menu":
         if menus.start_btn.draw(screen):
             game_state = "game"
     elif game_state == "game":
-
+        if menus.pause_btn.draw(screen):
+            game_state = "game_menu"
         if keys[pygame.K_w]:
             player_pos.y -= speed * dt
         if keys[pygame.K_s]:
