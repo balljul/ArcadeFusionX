@@ -21,4 +21,4 @@ class AFX_menus():
     resume_btn = button.Button((SCREEN_WIDTH/2.2), (SCREEN_HEIGHT/4), resume_img, 0.2)
     quit_btn = button.Button((SCREEN_WIDTH/2.2), (SCREEN_HEIGHT/2), quit_img, 0.2)
     start_btn = button.Button((SCREEN_WIDTH/2.2), (SCREEN_HEIGHT/4), start_img, 0.5)
-    pause_btn = button.Button((SCREEN_WIDTH/2.2), (SCREEN_HEIGHT/4), pause_img, 0.5)
+    pause_btn = button.Button((SCREEN_WIDTH/1.05), (30), pause_img, 0.1)
