@@ -47,13 +47,13 @@ while configs.running:
     elif game_state == "game":
 
         if keys[pygame.K_w]:
-            player_pos.y -= 900 * dt
+            player_pos.y -= speed * dt
         if keys[pygame.K_s]:
-            player_pos.y += 900 * dt
+            player_pos.y += speed * dt
         if keys[pygame.K_a]:
-            player_pos.x -= 900 * dt
+            player_pos.x -= speed * dt
         if keys[pygame.K_d]:
-            player_pos.x += 900 * dt
+            player_pos.x += speed * dt
 
         if keys[pygame.K_r]:
             player_pos = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2)
