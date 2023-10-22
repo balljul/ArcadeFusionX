@@ -1,10 +1,9 @@
 import pygame
-from menus import Game_menu, Start_menu
+from menus import AFX_menus
 from globals import AFX_configs
 
 pygame.init()
-gmenu = Game_menu()
-smenu = Start_menu()
+menus = AFX_menus()
 configs = AFX_configs()
 pygame.display.set_caption("AcradeFusionX")
 
@@ -34,18 +33,20 @@ while configs.running:
             running = False
 
     screen.fill("blue")
-    debugUI = screen.subsurface(10, 10, 100, 50)
+    debugUI = screen.subsurface(10, 10, 150, 50)
     debugUI.fill("black")
 
     keys = pygame.key.get_pressed()
 
-    if game_state == "start_menu":
-        if smenu.start_btn.draw(screen):
-            game_state = "game"
-        if keys[pygame.K_q]:
-            configs.running = False
-    elif game_state == "game":
+    if keys[pygame.K_q]:
+        configs.running = False
 
+    if game_state == "start_menu":
+        if menus.start_btn.draw(screen):
+            game_state = "game"
+    elif game_state == "game":
+        if menus.pause_btn.draw(screen):
+            game_state = "game_menu"
         if keys[pygame.K_w]:
             player_pos.y -= speed * dt
         if keys[pygame.K_s]:
@@ -69,9 +70,9 @@ while configs.running:
         pygame.draw.circle(screen, "white", player_pos, 40)
 
     elif game_state == "game_menu":
-        if gmenu.resume_btn.draw(screen):
+        if menus.resume_btn.draw(screen):
             game_state = "game"
-        if gmenu.quit_btn.draw(screen):
+        if menus.quit_btn.draw(screen):
             game_state = "start_menu"
 
     dt = clock.tick(144) / 10000
