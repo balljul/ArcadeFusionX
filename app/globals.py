@@ -1,6 +1,7 @@
 import pygame
 pygame.init()
 
+
 class AFX_configs():
     running = True
     SCREEN_WIDTH = 1280
