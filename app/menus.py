@@ -15,7 +15,7 @@ class AFX_menus():
     resume_img = pygame.image.load("../resources/resume.png").convert_alpha()
     quit_img = pygame.image.load("../resources/quit.png").convert_alpha()
     start_img = pygame.image.load("../resources/start.png").convert_alpha()
-    pause_img = pygame.image.load("../resources/pause_btn.png")
+    pause_img = pygame.image.load("../resources/pause.png")
 
     # Creating Button instances
     resume_btn = button.Button((SCREEN_WIDTH/2.2), (SCREEN_HEIGHT/4), resume_img, 0.2)

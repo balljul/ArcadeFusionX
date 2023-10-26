@@ -1,3 +1,5 @@
+#! /usr/bin/env python3
+
 import pygame
 from menus import AFX_menus
 from globals import AFX_configs
